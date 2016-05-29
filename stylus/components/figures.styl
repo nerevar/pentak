@@ -1,0 +1,172 @@
+$cell = 80px
+rotation-point(top, left)
+    position: absolute
+    width: ($cell / 2)
+    height: ($cell / 2)
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHBhdGggZD0nTTMzIDJjNy43NDYgMCAxNS4wMjggMy4wMTcgMjAuNTA1IDguNDk0IDEwLjEzOCAxMC4xMzcgMTEuMzEgMjYuMzk2IDIuNzQgMzcuODVMNTIgNTIuNTg4VjQ0aC0ydjExbDEgMWgxMXYtMmgtOC41ODJsNC4yOTItNC4yOTMuMDkyLS4xMDZjOS4yMS0xMi4yNDYgNy45NzItMjkuNjY2LTIuODgzLTQwLjUyQzQ5LjA2MyAzLjIyNSA0MS4yOCAwIDMzIDB2MnpNNy43NTUgMTUuNjU3TDEyIDExLjQxVjIwaDJWOWwtMS0xSDJ2Mmg4LjU4Mkw2LjI5IDE0LjI5M2wtLjA5Mi4xMDZjLTkuMjEgMTIuMjQ2LTcuOTcgMjkuNjY2IDIuODgzIDQwLjUyQzE0LjkzNyA2MC43NzUgMjIuNzIgNjQgMzEgNjR2LTJjLTcuNzQ2IDAtMTUuMDI4LTMuMDE3LTIwLjUwNS04LjQ5NEMuMzU3IDQzLjM3LS44MTUgMjcuMTEgNy43NTUgMTUuNjU2eicvPjwvc3ZnPg==");
+    content: ''
+    top: top + ($cell / 4)
+    left: left + ($cell / 4)
+
+.pentak
+    position: relative
+
+    i
+        position: absolute
+        width: $cell
+        height: $cell
+        background-color: #c7adff
+        box-shadow: inset 1px 1px 0 0 #ccc;
+
+    &__l
+        &:after
+            rotation-point($cell, 0)
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+        & i:nth-child(4)
+            top: $cell * 3
+        & i:nth-child(5)
+            left: $cell
+
+    &__i
+        &:after
+            rotation-point($cell * 2, 0)
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+        & i:nth-child(4)
+            top: $cell * 3
+        & i:nth-child(5)
+            top: $cell * 4
+
+    &__y
+        &:after
+            rotation-point($cell * 2, 0)
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+        & i:nth-child(4)
+            top: $cell * 3
+        & i:nth-child(5)
+            top: $cell * 2
+            left: $cell
+
+    &__s
+        &:after
+            rotation-point($cell, 0)
+        & i:nth-child(1)
+            top: $cell
+        & i:nth-child(2)
+            top: $cell * 2
+        & i:nth-child(3)
+            top: $cell * 3
+        & i:nth-child(4)
+            left: $cell
+        & i:nth-child(5)
+            top: $cell
+            left: $cell
+
+    &__v
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+        & i:nth-child(4)
+            top: $cell * 2
+            left: $cell
+        & i:nth-child(5)
+            top: $cell * 2
+            left: $cell * 2
+
+    &__t
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+        & i:nth-child(4)
+            top: $cell
+            left: $cell
+        & i:nth-child(5)
+            top: $cell
+            left: $cell * 2
+
+    &__f
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+            left: $cell
+        & i:nth-child(4)
+            top: $cell
+            left: $cell
+        & i:nth-child(5)
+            top: $cell
+            left: $cell * 2
+
+    &__z
+        & i:nth-child(2)
+            left: $cell
+        & i:nth-child(3)
+            top: $cell
+            left: $cell
+        & i:nth-child(4)
+            top: $cell * 2
+            left: $cell
+        & i:nth-child(5)
+            top: $cell * 2
+            left: $cell * 2
+
+    &__u
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            left: $cell * 2
+        & i:nth-child(4)
+            top: $cell
+            left: $cell
+        & i:nth-child(5)
+            top: $cell
+            left: $cell * 2
+
+    &__p
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell * 2
+        & i:nth-child(4)
+            left: $cell
+        & i:nth-child(5)
+            top: $cell
+            left: $cell
+
+    &__x
+        & i:nth-child(1)
+            left: $cell
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell
+            left: $cell
+        & i:nth-child(4)
+            top: $cell
+            left: $cell * 2
+        & i:nth-child(5)
+            top: $cell * 2
+            left: $cell
+
+    &__w
+        & i:nth-child(2)
+            top: $cell
+        & i:nth-child(3)
+            top: $cell
+            left: $cell
+        & i:nth-child(4)
+            top: $cell * 2
+            left: $cell
+        & i:nth-child(5)
+            top: $cell * 2
+            left: $cell * 2
