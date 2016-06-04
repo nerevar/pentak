@@ -276,10 +276,22 @@ nav a:hover {
     width: 800px
     height 480px
     margin: 20px 0
-    border: 1px solid #cccccc
 
     position: relative
 
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, #CCC 80px, #CCC 81px),
-            repeating-linear-gradient(-90deg, transparent, transparent 80px, #CCC 80px, #CCC 81px);
-    background-size: 80px 80px;
+    .c
+        box-sizing: border-box
+        width: 80px
+        height: 80px
+
+        display: block
+        float: left
+
+        $borderColor = #ccc
+        border-right: 1px solid $borderColor
+        border-bottom: 1px solid $borderColor
+
+        &:nth-child(10n+1)
+            border-left: 1px solid $borderColor
+        &:nth-child(-n+10)
+            border-top: 1px solid $borderColor
