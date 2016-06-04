@@ -1,8 +1,9 @@
+const GRID_WIDTH = 10;
+const GRID_HEIGHT = 6;
+
 $(function() {
     "use strict";
 
-    const GRID_WIDTH = 10;
-    const GRID_HEIGHT = 6;
     window.grid = new Grid(GRID_WIDTH, GRID_HEIGHT);
 
     let $grid = $('.grid');

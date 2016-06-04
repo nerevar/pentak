@@ -193,6 +193,7 @@ class Figure {
 class Grid {
     constructor(w, h) {
         this.map = new Array(h).fill().map(() => new Array(w).fill(0));
+        this.$grid = $('.grid');
         this.figures = [];
     }
 
@@ -200,6 +201,10 @@ class Grid {
         for (let i = 0; i < this.map.length; i++) {
             console.info(this.map[i].join('').replace(/1/g, '⊠').replace(/0/g, '·'));
         }
+    }
+
+    getCell(x, y) {
+        return this.$grid.find('.c-' + y + '-' + x);
     }
 
     /**
@@ -210,6 +215,10 @@ class Grid {
      * @returns {Boolean} успешно ли фигуру разместили на поле
      */
     putFigure(figure, x, y) {
+        if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) {
+            return false;
+        }
+
         // Проверяем, что фигура становится
         for (let i = 0; i < FIGURE_SIZE; i++) {
             for (let j = 0; j < FIGURE_SIZE; j++) {
@@ -229,6 +238,7 @@ class Grid {
             for (let j = 0; j < FIGURE_SIZE; j++) {
                 if (figure.layout[i][j] === 1) {
                     this.map[y + i][x + j] = 1;
+                    this.getCell(x + j, y + i).addClass('c_active');
                 }
             }
         }
