@@ -13,6 +13,7 @@ class Figure {
         for (let i = 0; i < FIGURE_SIZE; i++) {
             console.info(this.layout[i].join('').replace(/1/g, '⊠').replace(/0/g, '·'));
         }
+        console.info('');
         return this;
     }
 
@@ -77,7 +78,7 @@ class Figure {
     static shiftMatrix(matrix) {
         // shift rows
         while (+matrix[0].join('') === 0) {
-            for (let i = 0; i < matrix.length - 2; i++) {
+            for (let i = 0; i < matrix.length - 1; i++) {
                 matrix[i] = matrix[i + 1];
             }
             matrix[matrix.length - 1] = new Array(FIGURE_SIZE).fill(0);
@@ -222,23 +223,26 @@ class Grid {
         // Проверяем, что фигура становится
         for (let i = 0; i < FIGURE_SIZE; i++) {
             for (let j = 0; j < FIGURE_SIZE; j++) {
-                try {
-                    if (figure.layout[i][j] === 1 && this.map[y + i][x + j] === 1) {
-                        return false;
-                    }
-                } catch(e) {
-                    // выход за пределы массива
+                // фигура выходит за пределы поля
+                if (figure.layout[i][j] === 1 && (x + j >= GRID_WIDTH || y + i >= GRID_HEIGHT)) {
+                    return false;
+                }
+                // фигура накладывается на другую
+                if (figure.layout[i][j] === 1 && this.map[y + i][x + j] === 1) {
                     return false;
                 }
             }
         }
 
         // Заполняем поле
+        let color = '#' + (Math.random() * 0xFFFFFF<<0).toString(16);
         for (let i = 0; i < FIGURE_SIZE; i++) {
             for (let j = 0; j < FIGURE_SIZE; j++) {
                 if (figure.layout[i][j] === 1) {
                     this.map[y + i][x + j] = 1;
-                    this.getCell(x + j, y + i).addClass('c_active');
+                    this.getCell(x + j, y + i)
+                        .addClass('c_active')
+                        .css('background-color', color);
                 }
             }
         }

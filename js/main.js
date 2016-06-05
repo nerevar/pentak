@@ -14,4 +14,8 @@ $(function() {
             );
         }
     }
+
+    for (var i = 0; i < 10000; i++) {
+        grid.putFigure(new Figure(rnd('liysvtfzupxw'.split(''))).rotate(rnd([0, 90, 180, 270, -90, -270])), rnd(10), rnd(5))
+    }
 });
